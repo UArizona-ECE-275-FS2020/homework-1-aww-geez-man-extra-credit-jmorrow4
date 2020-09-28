@@ -21,28 +21,66 @@ exists a Morty who says everything backwards.
 
 // Include the Morty header file
 #include "Morty.hpp"
-
+#include <sstream>
+#include <iostream>
+#include <stdlib.h>
+#include <string>
+using namespace std;
 
 int main (int ac, char** av) {
 	// Parse the command line arguments. The program is executed as
 	// ./AwwGeezMan {start} {stop} {dimension}
 	// or 
 	// ./AwwGeezMan {start} {stop} {step} {dimension}
+
+	int start, stop, step;
+	string demension;
+	string s1 = "C137";
+	string s2 = "Z286";
+
 	if (ac != 4 and ac != 5) {
-		std::cout << "Error: Command line arguments are incorrect. Call program as (1) or (2)" 
-			<< std::endl;
-		std::cout << "(1)\t./AwwGeezMan {start} {stop} {dimension}" << std::endl;
-		std::cout << "(2)\t./AwwGeezMan {start} {stop} {step} {dimension}" << std::endl;
-		
+		cout << "Error: Command line arguments are incorrect. Call program as (1) or (2)"
+			<< endl;
+		cout << "(1)\t./AwwGeezMan {start} {stop} {dimension}" << endl;
+		cout << "(2)\t./AwwGeezMan {start} {stop} {step} {dimension}" << endl;
+
 		return -1;
 	}
-	
-	// Parse the command line arguments
-	
+	if (ac == 4) {
 		
-	// Depending on the dimension of the arguments, call the appropriate Morty
-	// function
+	    start = atoi(*(av + 1));
+		stop = atoi(*(av + 2));
+		demension = *(av + ac - 1);
+
+		if (demension.compare(s1) == 0) {
+			C137::Morty(start, stop);
+		}
+		else if (demension.compare(s2) == 0) {
+			Z286::Morty(start, stop);
+		}
+		else {
+			cout << "ERROR: Unknown dimension!!" << endl;
+		}
+	}
+	if(ac == 5) {
+
+		start = atoi(*(av + 1));
+		stop = atoi(*(av + 2));
+		step = atoi(*(av + 3));
+		demension = *(av + ac - 1);
 	
+		if (demension.compare(s1) == 0) {
+			C137::Morty(start, stop, step);
+		}
+		else if (demension.compare(s2) == 0) {
+			Z286::Morty(start, stop, step);
+		}
+		else {
+			cout << "ERROR: Unknown dimension!!" << endl;
+		}
+	}
+
+
 	
 	return 0;
 }

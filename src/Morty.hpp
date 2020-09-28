@@ -11,7 +11,8 @@
 #include <iostream>
 
 
-/* Extra credit below:
+
+// Extra credit below:
 namespace interdimensional { 
 	// Declare enumeration to hold the dimensions each Morty is from
 	enum dimension {UNKNOWN = -1, C137, Z286};
@@ -28,14 +29,24 @@ namespace interdimensional {
 	args parseArgs(int c, char** v);
 	
 }
-*/
+
 
 // =========================================================================== // 
 //          Declare Namespace C137 and enclosed functions here 
+namespace C137 {
+	void Morty(int start, int stop);
+	void Morty(int start, int stop, int step);
+
+}
 // =========================================================================== // 
 
 
 
 // =========================================================================== // 
 //          Declare Namespace Z286 and enclosed functions here 
+namespace Z286 {
+	void Morty(int start, int stop);
+	void Morty(int start, int stop, int step);
+	
+}
 // =========================================================================== // 
