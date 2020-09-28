@@ -63,10 +63,10 @@ args interdimensional::parseArgs(int c, char** v) {
     if (c == 5) {
         variable.step = atoi(*(v + 3));
     }
-    if (*(v + c - 1) == "C137") {
+    if (atoi(*(v + c - 1)) == 0) {
         variable.dim = C137;
     }
-    else if (*(v + c - 1) == "Z286") {
+    else if (atoi(*(v + c - 1))== 1) {
         variable.dim = Z286;
     }
     else {
